@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Shopping - Order At Your Home.</title>
+
+    <!-- Linking CSS Files and External tools. -->
+    <link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body style="background-color:#eee;">
+    
+    <!-- Navigation Bar -->
+<section>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <i style="font-size: 19px;"class="fa fa-home white-color nav-link"></i>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#featured-categories">Products</a> 
+             </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="#about">About Us</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a> 
+            </li>     
+        </ul>
+
+        <ul class="nav-list-right">
+            <li class="nav-item-right">
+                    <a href="user.html"><i style="font-size: 19px;" class="fa fa-shopping-cart white-color nav-link"></i></a>
+                </i>
+            </li>
+
+            <script>
+                const userInfo=JSON.parse(localStorage.getItem('UserInfo'));
+                const nav=document.querySelector('navbar');
+                let isUserLogIn=true;
+                if(!userInfo){
+                    isUserLogIn=false;
+                }
+
+                let html=`
+                    <li class="nav-item-right">
+                        <a class="nav-link" href="#">Sign Up</a>
+                    </li>
+            
+                    <li class="nav-item-right">
+                        <a class="nav-link" href="#">
+                        <i style="padding: 0px 5px;" class="fa fa-sign-in white-color"></i>Login</a>
+                    </li>
+                `
+
+                
+            </script>
+            
+        </ul>    
+    </nav>
+
+</section>
+
+
+
+<!-- Slider caraousel -->
+<section>
+    <div class="container">
+        <div class="slide">
+            <img src="https://img.freepik.com/free-vector/modern-sale-banner-website-slider-template-design_54925-45.jpg"/>
+          
+          
+        </div>
+       
+        <div class="slide">
+           <img src="https://storiesflistgv2.blob.core.windows.net/stories/2016/09/daily_offers_banner_Final.jpg" />
+        </div>
+        <a class="prevbtn" onclick="changeSlide(-1)">❮</a>
+        <a class="nextbtn" onclick="changeSlide(1)">❯</a>
+     </div>
+
+     <script>  
+        var slideIndex = 1;
+        viewSlides(1);
+
+        function changeSlide(n) {
+                    viewSlides(slideIndex += n);
+        }
+        function viewSlides(n) {
+            var i;
+            
+            var x = document.getElementsByClassName("slide");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length} ;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+        }
+     </script>
+</section>
+
+
+<!--Products Card-->
+<section>
+    <div class="fakebox"></div>
+    <div class="container2">
+        <h1>Featured Products</h1>
+
+        <div class="items">
+        </div>
+    </div>
+</section>
+
+<!-- Contact Us-->
+<!------Contact------------>	
+<section id="contact">		
+	<div class="container2">
+		<h1>Get In Touch</h1>
+		<div class="row">
+			<div class="col-md-6">
+				<form class="contact-form">
+				<div class="form-group">
+				<input type="text" class="form-control" placeholder="Your Name..">
+				</div>
+				<div class="form-group">
+				<input type="number" class="form-control" placeholder="Phone no.">
+				</div>
+				<div class="form-group">
+				<input type="email" class="form-control" placeholder="Email..">
+				</div>
+				<div class="form-group">
+				<textarea style="height:auto;" class="form-control" rows="4" placeholder="Message.."></textarea>
+				</div>
+			
+				<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+			<div class="col-md-6 contact-info">
+				<div class="follow"><b><i class="fa fa-map-marker white-color"></i>  </b>Navrangpura, Ahmedabad, India</div>
+				<div class="follow"><b><i class="fa fa-mobile"></i>  </b>(+91)8735****26</div>
+				<div class="follow"><b><i class="fa fa-envelope"></i>  </b>Shopping@gmail.com</div>
+				
+				
+				<div class="follow"><label><b>Get Social </b></label>
+				    <a href="https://www.facebook.com/"><i class="fa fa-facebook white-color"></i></a>
+				    <a href="https://www.youtube.com/"><i class="fa fa-youtube-play white-color"></i></a>
+				    <a href="https://twitter.com/login"><i class="fa fa-twitter white-color"></i></a>
+				    <a href="https://myaccount.google.com/"><i class="fa fa-google-plus white-color"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+</body>
+
+<script src="product.js"></script>
+<script src="html-same-componet.js"></script>
+<script src="user.js"></script>
+<script src="index.js"></script>
+
+<script>
+    AddItem()
+</script>
+</html>
